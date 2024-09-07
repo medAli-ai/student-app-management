@@ -53,7 +53,7 @@ let verifySecretClient = (req, res, next)=>{
 }}
     
 
-route.post('/addStudent', verifyToken, verifySecretClient, (req,res,next)=>{
+route.post('/addStudent', verifyTokenAdmin, verifySecretClient, (req,res,next)=>{
 
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
@@ -81,7 +81,7 @@ route.get('/student/:id', verifyToken, verifySecretClient, (req,res,next)=>{
     }).catch((err)=>next(err))
 })
 
-route.put('/student/:id', verifyToken, verifySecretClient, (req,res,next)=>{
+route.put('/student/:id', verifyTokenAdmin, verifySecretClient, (req,res,next)=>{
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
     let email = req.body.email;
@@ -93,7 +93,7 @@ route.put('/student/:id', verifyToken, verifySecretClient, (req,res,next)=>{
     }).catch((err)=>next(err))
 })
 
-route.delete('/student/:id', verifyToken, verifySecretClient, (req,res,next)=>{
+route.delete('/student/:id', verifyTokenAdmin, verifySecretClient, (req,res,next)=>{
     studentModel.deleteStudentById(req.params.id).then((doc)=>{
         res.status(200).json(doc);
     }).catch((err)=>next(err))
