@@ -1,6 +1,7 @@
 const express = require('express');
 const studentRoute = require('./routers/student.route');
 const userRoute = require('./routers/user.route');
+const adminRoute = require('./routers/admin.route');
 const app = express();
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use((req,res,next)=>{
 
 app.use('/', studentRoute)
 app.use('/', userRoute)
+app.use('/admin', adminRoute)
 
 
 app.listen(3000, () => {
