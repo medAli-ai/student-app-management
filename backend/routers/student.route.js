@@ -20,6 +20,25 @@ let verifyToken = (req, res, next) => {
     }
 
 }
+
+let verifyTokenAdmin = (req,res,next)=>{
+    let token = req.headers.authorization;
+    let role = req.headers.role;
+    if(!token || role != 'admin'){
+        res.status(403).json({msg:'Unauthorized'});
+    }
+
+    try{
+        jwt.verify(token, privateKey);
+        next();
+    }
+    catch(err){
+        res.status(403).json({msg:err});
+    }
+
+}
+
+
 let secretKey = process.env.SECRET_KEY;
 let clientKey = process.env.CLIENT_KEY;
 
