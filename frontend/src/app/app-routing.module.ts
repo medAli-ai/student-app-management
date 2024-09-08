@@ -3,12 +3,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard/dashboard.component';
+import { LoginadminComponent } from './views/admin/loginadmin/loginadmin/loginadmin.component';
+
 
 
 const routes: Routes = [
   {path:'', component:FrontLayoutComponent},
   {path:'admin', component:AdminLayoutComponent,
-    children:[{path:'dashboard', component:DashboardComponent},]
+    children:[
+      {path:'dashboard', component:DashboardComponent},
+      {path:'loginadmin', component:LoginadminComponent} ]
   }
 ];
 
