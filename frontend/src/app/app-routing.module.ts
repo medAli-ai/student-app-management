@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', component:FrontLayoutComponent},
+  {path:'admin', component:AdminLayoutComponent}
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
