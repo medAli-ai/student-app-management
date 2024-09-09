@@ -1,29 +1,10 @@
-import { Component, NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { DashboardComponent } from './views/admin/dashboard/dashboard/dashboard.component';
-import { LoginadminComponent } from './views/admin/loginadmin/loginadmin/loginadmin.component';
-import { HomeComponent } from './views/front/home/home/home.component';
-import { LoginuserComponent } from './views/front/loginuser/loginuser/loginuser.component';
-import { RegisterComponent } from './views/front/register/register/register.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-
-const routes: Routes = [
-  {path:'', component:FrontLayoutComponent, children:[
-    {path:'', component:HomeComponent},
-    {path:'loginuser', component:LoginuserComponent},
-    {path:'register', component:RegisterComponent}
-  ]},
-  {path:'admin', component:AdminLayoutComponent,
-    children:[
-      {path:'dashboard', component:DashboardComponent},
-      {path:'loginadmin', component:LoginadminComponent} ]
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
