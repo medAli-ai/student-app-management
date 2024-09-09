@@ -6,12 +6,14 @@ import { DashboardComponent } from './views/admin/dashboard/dashboard/dashboard.
 import { LoginadminComponent } from './views/admin/loginadmin/loginadmin/loginadmin.component';
 import { HomeComponent } from './views/front/home/home/home.component';
 import { LoginuserComponent } from './views/front/loginuser/loginuser/loginuser.component';
+import { RegisterComponent } from './views/front/register/register/register.component';
 
 
 const routes: Routes = [
   {path:'', component:FrontLayoutComponent, children:[
     {path:'', component:HomeComponent},
-    {path:'loginuser', component:LoginuserComponent}
+    {path:'loginuser', component:LoginuserComponent},
+    {path:'register', component:RegisterComponent}
   ]},
   {path:'admin', component:AdminLayoutComponent,
     children:[
